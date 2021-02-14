@@ -11,14 +11,21 @@ import { MatToolbarModule,
   MatIconModule,
   MatCardModule,
   MatButtonModule,
-  MatProgressSpinnerModule } from '@angular/material';
+  MatProgressSpinnerModule, 
+ } from '@angular/material';
+ import {MatDatepickerModule} from '@angular/material/datepicker';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatNativeDateModule} from '@angular/material';
+ import {MatInputModule} from '@angular/material';
+ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent, 
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,14 @@ import { MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule, 
+    MatDatepickerModule,
+    MatFormFieldModule, 
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule, 
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
