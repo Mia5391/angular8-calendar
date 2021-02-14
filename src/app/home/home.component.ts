@@ -18,16 +18,17 @@ export class HomeComponent implements OnInit {
     
   }
 
-  refresh(){
-    this.apiService.get().subscribe((data: any) => {
-      console.log(data);
-      this.events = data.items;
+  refresh(startDate:string = ""){
+    this.apiService.get(startDate).subscribe((data: any) => {
+      console.log(data.data);
+      this.events = data.data.items;
       console.log(this.events);
     });
   }
 
   ngOnInit() {
     this.refresh();
+    
 
   }
 }
