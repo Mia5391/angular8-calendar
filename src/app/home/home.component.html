@@ -22,6 +22,32 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="categoryId" (selectionChange)="refresh()">
+        <mat-option>
+        </mat-option>
+    <ng-container *ngIf="this.categories?.length > 0" >
+        <mat-option *ngFor="let category of this.categories" [value]="category.id">
+            {{category.title}}
+          </mat-option>
+    </ng-container>
+
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tag</mat-label>
+    <mat-select [(ngModel)]="tagId" (selectionChange)="refresh()">
+        <mat-option>
+        </mat-option> 
+        <ng-container *ngIf="this.tags?.length > 0">
+            <mat-option  *ngFor="let tag of this.tags" [value]="tag.id">
+                {{tag.title}}
+              </mat-option>
+        </ng-container>
+
+    </mat-select>
+  </mat-form-field>
   <mat-card *ngFor="let event of events" style="margin-top: 10px">
     <mat-card-header>
       <mat-card-title>{{ event.title }}</mat-card-title>
