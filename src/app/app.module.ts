@@ -18,6 +18,7 @@ import { MatToolbarModule,
  import {MatNativeDateModule} from '@angular/material';
  import {MatInputModule} from '@angular/material';
  import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+ import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -42,7 +43,8 @@ import { MatToolbarModule,
     MatNativeDateModule,
     MatInputModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
 
   ],
   providers: [],

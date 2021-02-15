@@ -11,7 +11,17 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-
+  <mat-form-field class="">
+    <input matInput placeholder="Page size" [value]="pageSize" type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Page</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let page of this.pageRange" [value]="page">
+        {{page}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-card *ngFor="let event of events" style="margin-top: 10px">
     <mat-card-header>
       <mat-card-title>{{ event.title }}</mat-card-title>

@@ -10,6 +10,10 @@ import { ApiService } from "../api.service";
 })
 export class HomeComponent implements OnInit {
   events = [];
+  pages = 0;
+  totalEvents = 0;
+  pageSize = 20;
+  pageRange = [];
   startDate = new FormControl(new Date());
   
 
@@ -22,6 +26,9 @@ export class HomeComponent implements OnInit {
     this.apiService.get(startDate).subscribe((data: any) => {
       console.log(data.data);
       this.events = data.data.items;
+      this.totalEvents = data.data.total;
+      this.pages = Math.ceil(this.totalEvents/this.pageSize)
+      this.pageRange = Object.getOwnPropertyNames(Array.from(new Array(this.pages))).slice(0,-1);
       console.log(this.events);
     });
   }
@@ -31,4 +38,5 @@ export class HomeComponent implements OnInit {
     
 
   }
+
 }
