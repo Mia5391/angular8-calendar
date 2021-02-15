@@ -6,19 +6,19 @@
       [matDatepicker]="picker"
       placeholder="Choose a date"
       [formControl]="startDate"
-      (ngModelChange)="refresh(this.startDate.value.toISOString().split('T')[0])"
+      (ngModelChange)="refresh()"
     />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <mat-form-field class="">
-    <input matInput placeholder="Page size" [value]="pageSize" type="number">
+    <input matInput placeholder="Page size" [(ngModel)]="pageSize" type="number" (change)="refresh()">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Page</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let page of this.pageRange" [value]="page">
-        {{page}}
+    <mat-select [(ngModel)]="page" (selectionChange)="refresh()">
+      <mat-option *ngFor="let pg of this.pageRange" [value]="pg">
+        {{pg}}
       </mat-option>
     </mat-select>
   </mat-form-field>

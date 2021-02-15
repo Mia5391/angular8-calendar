@@ -11,7 +11,8 @@ import { MatToolbarModule,
   MatIconModule,
   MatCardModule,
   MatButtonModule,
-  MatProgressSpinnerModule, 
+  MatProgressSpinnerModule,
+  MatOptionModule, 
  } from '@angular/material';
  import {MatDatepickerModule} from '@angular/material/datepicker';
  import {MatFormFieldModule} from '@angular/material/form-field';
@@ -44,7 +45,8 @@ import { MatToolbarModule,
     MatInputModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatOptionModule
 
   ],
   providers: [],
