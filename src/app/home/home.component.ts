@@ -9,6 +9,8 @@ import { ApiService } from "../api.service";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
+  settingsId = null;
+
   events = [];
   pages = 0;
   page = 0;
@@ -27,6 +29,7 @@ export class HomeComponent implements OnInit {
   refresh() {
     this.apiService
       .getEvents(
+        this.settingsId,
         this.startDate.value.toISOString().split("T")[0],
         this.page,
         this.pageSize,
@@ -45,19 +48,20 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  log(input:any){
-    console.log(input)
+  log(input: any) {
+    console.log(input);
   }
 
   ngOnInit() {
-    this.apiService.getCategories().subscribe((data:any) => {
-      this.categories = data.data.items
-      
+    this.apiService.getSettings().subscribe((data: any) => {
+      this.settingsId = data.data.id;
+      this.apiService.getCategories().subscribe((data: any) => {
+        this.categories = data.data.items;
+        this.apiService.getTags().subscribe((data: any) => {
+          this.tags = data.data.items;
+          this.refresh();
+        });
+      });
     });
-    this.apiService.getTags(). subscribe((data:any) => {
-      this.tags = data.data.items
-      
-    });
-    this.refresh();
   }
 }
